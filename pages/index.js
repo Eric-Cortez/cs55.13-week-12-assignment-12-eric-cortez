@@ -12,7 +12,7 @@ import Link from 'next/link';
 import Date from '../components/date';
 
 // Import helper that returns blog posts sorted by date
-import { getSortedPostsData } from '../lib/posts';
+import { getSortedPostsData } from '../lib/posts-json'; // Changed from posts.js to posts-json.js
 
 // Next.js build-time data fetch: runs at build, not on the client
 export async function getStaticProps() {
@@ -54,12 +54,13 @@ export default function Home({ allPostsData }) {
         <h2 className={utilStyles.headingLg}>Blog</h2>
         <ul className={utilStyles.list}>
           {/* Iterate posts and render basic details */}
-          {allPostsData.map(({ id, date, title }) => (
+          {allPostsData.map(({ id, date, title, author }) => (
             <li className={`${utilStyles.listItem} ${styles.postListItem}`} key={id}>
               <Link className={styles.postListItemTitle} href={`/posts/${id}`}>{title}</Link>
               <br />
               <small className={`${utilStyles.lightText} ${styles.postListItemMeta}`}>
                 <Date dateString={date} />
+                <p className={utilStyles.authorText}>By {author}</p>
               </small>
             </li>
           ))}

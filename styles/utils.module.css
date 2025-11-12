@@ -63,3 +63,10 @@
   line-height: 1.8;
   color: #30163e;
 }
+
+.authorText {
+  font-size: 0.8rem;
+  color: #555;
+  margin-left: 0.5rem;
+  font-style: italic;
+}

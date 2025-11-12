@@ -6,7 +6,7 @@ import Date from '../../components/date';
 import utilStyles from '../../styles/utils.module.css';
 
 // Import helpers: one to list all ids, one to read a single post
-import { getAllPostIds, getPostData } from '../../lib/posts';
+import { getAllPostIds, getPostData } from '../../lib/posts-json'; // Changed from posts.js to posts-json.js
 // Import Next.js <Head> to set page-specific metadata
 import Head from 'next/head';
 
@@ -46,6 +46,7 @@ export default function Post({ postData }) {
                 <h1 className={utilStyles.headingXl}>{postData.title}</h1>
                 <div className={utilStyles.lightText}>
                     <Date dateString={postData.date} />
+                    <p className={utilStyles.authorText}>By {postData.author}</p>
                 </div>
                 <div className={utilStyles.articleContent} dangerouslySetInnerHTML={{ __html: postData.contentHtml }} />
             </article>
