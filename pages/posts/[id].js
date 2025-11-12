@@ -46,7 +46,7 @@ export default function Post({ postData }) {
                 <h1 className={utilStyles.headingXl}>{postData.title}</h1>
                 <div className={utilStyles.lightText}>
                     <Date dateString={postData.date} />
-                    <p className={utilStyles.authorText}>By {postData.author}</p>
+                    <p className={utilStyles.authorText}>By User-{postData.author}</p>
                 </div>
                 <div className={utilStyles.articleContent} dangerouslySetInnerHTML={{ __html: postData.contentHtml }} />
             </article>

@@ -60,7 +60,7 @@ export default function Home({ allPostsData }) {
               <br />
               <small className={`${utilStyles.lightText} ${styles.postListItemMeta}`}>
                 <Date dateString={date} />
-                <p className={utilStyles.authorText}>By {author}</p>
+                <p className={utilStyles.authorText}>By User-{author}</p>
               </small>
             </li>
           ))}
