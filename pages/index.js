@@ -12,12 +12,12 @@ import Link from 'next/link';
 import Date from '../components/date';
 
 // Import helper that returns blog posts sorted by date
-import { getSortedPostsData } from '../lib/posts-json'; // Changed from posts.js to posts-json.js
+import { getSortedPostsData } from '../lib/data'; // Changed from posts.js to posts-json.js
 
 // Next.js build-time data fetch: runs at build, not on the client
 export async function getStaticProps() {
   // Read and sort posts data from the filesystem
-  const allPostsData = getSortedPostsData();
+  const allPostsData = await getSortedPostsData();
   // Return props object that will be passed to the page component
   return {
     // Props key required by Next.js for passing data to the page

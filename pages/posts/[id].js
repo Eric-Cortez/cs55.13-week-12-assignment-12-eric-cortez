@@ -6,7 +6,7 @@ import Date from '../../components/date';
 import utilStyles from '../../styles/utils.module.css';
 
 // Import helpers: one to list all ids, one to read a single post
-import { getAllPostIds, getPostData } from '../../lib/posts-json'; // Changed from posts.js to posts-json.js
+import { getAllPostIds, getPostData } from '../../lib/data'; // Changed from posts.js to posts-json.js
 // Import Next.js <Head> to set page-specific metadata
 import Head from 'next/head';
 
@@ -25,7 +25,7 @@ export async function getStaticProps({ params }) {
 
 export async function getStaticPaths() {
     // Fetch all post ids to build the list of paths
-    const paths = getAllPostIds();
+    const paths = await getAllPostIds();
     // Return the paths array and disable fallback for unknown routes
     return {
         paths,
